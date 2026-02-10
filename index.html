@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation d'un ordinateur au CDI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1b1b2f, #162447, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(14px);
+            padding: 40px 50px;
+            border-radius: 25px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.4);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeIn 1.2s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.4);
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .grid a {
+            display: block;
+            padding: 12px 0;
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: 0.25s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .grid a:hover {
+            background: rgba(255,255,255,0.28);
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Réservation ordinateurs</h1>
+    <h3>CDI - Collège-Lycée Léon l'Africain - Site Charci</h3>
+    <p></p>
+    <p>Veuillez sélectionner une classe pour réserver une place au CDI.</p>
+
+    <div class="grid">
+        <a href="#" id="link-5e1"><bold>5e 1</bold></a>
+        <a href="#" id="link-5e2"><bold>5e 2</bold></a>
+        <a href="#" id="link-5e3"><bold>5e 3</bold></a>
+        <a href="#" id="link-5e4"><bold>5e 4</bold></a>
+        <a href="#" id="link-5e5"><bold>5e 5</bold></a>
+        <a href="#" id="link-5e6"><bold>5e 6</bold></a>
+        <a href="#" id="link-5e7"><bold>5e 7</bold></a>
+
+        <a href="#" id="link-6e1"><bold>6e 1</bold></a>
+        <a href="#" id="link-6e2"><bold>6e 2</bold></a>
+        <a href="#" id="link-6e3"><bold>6e 3</bold></a>
+        <a href="#" id="link-6e4"><bold>6e 4</bold></a>
+        <a href="#" id="link-6e5"><bold>6e 5</bold></a>
+        <a href="#" id="link-6e6"><bold>6e 6</bold></a>
+        <a href="#" id="link-6e7"><bold>6e 7</bold></a>
+    </div>
+      <!-- MODAL POPUP -->
+  <div id="modal-5e1" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); justify-content:center; align-items:center; z-index:999;">
+    <div style="background:rgba(73, 73, 73, 0.641); padding:40px; border-radius:20px; max-width:500px; width:90%; text-align:center; position:relative;">
+      <button id="close-5e1" style="position:absolute; top:15px; right:15px; background:none; border:none; font-size:1.5rem; color:white; cursor:pointer;">✕</button>
+      <p style="margin-bottom:25px; font-size:1.1rem; opacity:0.9;">
+        Pour réserver une place, merci d’utiliser votre adresse académique au format "nom.prenom@leonafricain.ma".
+      </p>
+
+      <!-- Google Calendar Appointment Scheduling begin -->
+      <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+      <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+      <div id="calendar-btn-container"></div>
+      <script>
+        let calendarLoaded = false;
+        document.getElementById('link-5e1').addEventListener('click', function(e) {
+          e.preventDefault();
+          const modal = document.getElementById('modal-5e1');
+          modal.style.display = 'flex';
+          if (!calendarLoaded) {
+            calendar.schedulingButton.load({
+              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0s6YL0_6hfa0tPxqYeiAkze8cNxap8XdyijVCyuApIqyddE51CNvzx4CxcjMfHlGyh1EWZFNuP?gv=true',
+              color: '#039BE5',
+              label: 'Réserver un rendez-vous',
+              target: document.getElementById('calendar-btn-container')
+            });
+            calendarLoaded = true;
+          }
+        });
+
+        document.getElementById('close-5e1').addEventListener('click', function() {
+          document.getElementById('modal-5e1').style.display = 'none';
+        });
+      </script>
+      <!-- end Google Calendar Appointment Scheduling -->
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
