@@ -84,7 +84,7 @@
 
 <div class="container">
     <h1>Réservation ordinateurs</h1>
-    <h3>CDI du Collège-Lycée Léon l'Africain - Site Charci</h3>
+    <h3>CDI - Collège-Lycée Léon l'Africain - Site Charci</h3>
     <p></p>
     <p>Veuillez sélectionner une classe pour réserver une place au CDI.</p>
 
@@ -127,7 +127,7 @@
             calendar.schedulingButton.load({
               url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0s6YL0_6hfa0tPxqYeiAkze8cNxap8XdyijVCyuApIqyddE51CNvzx4CxcjMfHlGyh1EWZFNuP?gv=true',
               color: '#039BE5',
-              label: 'OK',
+              label: 'Réserver un rendez-vous',
               target: document.getElementById('calendar-btn-container')
             });
             calendarLoaded = true;
@@ -139,46 +139,9 @@
         });
       </script>
       <!-- end Google Calendar Appointment Scheduling -->
-      <!-- MODAL POPUP -->
-  <div id="modal-5e7" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); justify-content:center; align-items:center; z-index:999;">
-    <div style="background:rgba(73, 73, 73, 0.641); padding:40px; border-radius:20px; max-width:500px; width:90%; text-align:center; position:relative;">
-      <button id="close-5e7" style="position:absolute; top:15px; right:15px; background:none; border:none; font-size:1.5rem; color:white; cursor:pointer;">✕</button>
-      <p style="margin-bottom:25px; font-size:1.1rem; opacity:0.9;">
-        Pour réserver une place, merci d’utiliser votre adresse académique au format "nom.prenom@leonafricain.ma".
-      </p>
-
-      <!-- Google Calendar Appointment Scheduling begin -->
-      <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-      <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-      <div id="calendar-btn-container"></div>
-      <script>
-        let calendarLoaded = false;
-        document.getElementById('link-5e7').addEventListener('click', function(e) {
-          e.preventDefault();
-          const modal = document.getElementById('modal-5e7');
-          modal.style.display = 'flex';
-          if (!calendarLoaded) {
-            calendar.schedulingButton.load({
-              url: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3U_CpzB94nT4UgY2n4_f3eP3OCej4o3s8Sp4NzHBGaLJuP-m6_KykIobwPy2QQbTivwiv5BxtA?gv=true',
-              color: '#039BE5',
-              label: 'OK',
-              target: document.getElementById('calendar-btn-container')
-            });
-            calendarLoaded = true;
-          }
-        });
-
-        document.getElementById('close-5e7').addEventListener('click', function() {
-          document.getElementById('modal-5e7').style.display = 'none';
-        });
-      </script>
-      <!-- end Google Calendar Appointment Scheduling -->
     </div>
   </div>
 </div>
 
 </body>
 </html>
-
-
-
